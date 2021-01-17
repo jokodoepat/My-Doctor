@@ -1,22 +1,22 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { Button, Gap, Header, Input } from '../../components'
 import { colors } from '../../utils'
 
-const Register = () => {
+const Register = ({ navigation, title }) => {
     return (
         <View style={styles.page}>
-            <Header/>
+            <Header onPress={() => navigation.goBack()} title="Daftar Akun" />
             <View style={styles.content}>
-                <Input label="Full Name"/>
-                <Gap height={24}/>
-                <Input label="Pekerjaan"/>
-                <Gap height={24}/>
-                <Input label="Email Address"/>
-                <Gap height={24}/>
-                <Input label="Password"/>
-                <Gap height={40}/>
-                <Button title="Continue" />
+                <Input label="Full Name" />
+                <Gap height={24} />
+                <Input label="Pekerjaan" />
+                <Gap height={24} />
+                <Input label="Email Address" />
+                <Gap height={24} />
+                <Input label="Password" />
+                <Gap height={40} />
+                <Button title="Continue" onPress={() => navigation.navigate('UploadPhoto')} />
             </View>
         </View>
     )
@@ -25,14 +25,12 @@ const Register = () => {
 export default Register
 
 const styles = StyleSheet.create({
-    content : {
-        padding : 40,
-        paddingTop : 0,
-        // justifyContent : 'space-between',
-        // flex : 1
+    content: {
+        padding: 40,
+        paddingTop: 0,
     },
-    page : {
-        flex:1,
-        backgroundColor:colors.white
+    page: {
+        flex: 1,
+        backgroundColor: colors.white
     }
 })
